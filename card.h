@@ -19,5 +19,8 @@ typedef struct card CARD;
 
 CARD newCard (char* name,char mechanic, int life, int cost, int attack, int damage);
 
+void printCard (CARD *card);
+
+
 #endif //FINDLETHAL_CARD
 

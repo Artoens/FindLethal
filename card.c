@@ -13,3 +13,12 @@ CARD newCard (char* name,char mechanic, int life, int cost, int attack, int dama
 	card->damage = damage;
 	return card;
 }
+
+void printCard (CARD *card)
+{
+	printf ("(%d)\n-----------------", card->cost);
+	printf ("\"%s\n\"", card->name);
+	printf ("     [%s\n]", card->mechanic);
+	printf ("     {%d\n}", card->damage);
+	printf (">%d<-------------<%d\n>", card->life, card->attack);
+}
