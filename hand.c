@@ -6,6 +6,9 @@
 #include "card.h"
 
 //inspired from  "ECAM-C3BE-2017-Mini-Projet-Example"
+//martin commentaire pour toi:
+//attention à CARD* et à la fonction CreateCard
+//il faut que ce sois dans le bon sens
 HAND* loadHand (char *path)
 {
 	HAND *hand = NULL;
@@ -16,18 +19,20 @@ HAND* loadHand (char *path)
 		hand = malloc (sizeof (HAND));
 		char buffer[BUFFER_SIZE];
 		
-		// Lecture du nombre de cartes
+		// reads the hand
 		fgets (buffer, BUFFER_SIZE, file);
-		hand->capacity = 10;
+		hand->handSize = readInt(file);
 		hand->size = 0;
-		hand->cards = malloc (hand->capacity * sizeof (CARD*));
+		hand->cards = malloc (hand->handSize * sizeof (CARD*));
 		
-		// Lecture des cartes
+		// creates a card for every cxard in the file
 		int i;
-		for (i = 0; i < hand->capacity; i++)
+		for (i = 0; i < hand->handSize; i++)
 		{
 			char *name = readString (file);
-			hand->cards[i] = createCard (name, readInt (file), readInt (file), readInt (file));
+			hand->cards[i] = createCard (name, 
+				readString (file), readInt (file),
+				readInt (file), readInt (file), readInt (file));
 		}
 		
 		fclose (file);
