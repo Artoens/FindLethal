@@ -1,0 +1,31 @@
+5
+fireball
+n
+0
+4
+0
+6
+Leeroy Jenkins
+c
+2
+5
+6
+0
+Ironfur Grizzly
+t
+3
+3
+3
+0
+Ultrasaur
+n
+14
+10
+7
+0
+Steam Surger
+n
+4
+4
+5
+0
