@@ -57,14 +57,17 @@ int main(int argc, char const *argv[])
 
 	printf ("* Le board enemi: ");
 	scanf ("%s", enemiBoard);
-
 	STATE* state = newState(myBoard, enemiBoard, hand);
+	/*
 	//inialize variables
 	int sizeEnemi = state->enemi->boardSize;
 	int sizeMe = state->mine->boardSize;
 	int sizeHand = state->hand->handSize;
-	
+	printf("%d\n", sizeHand);
+	printf("%d\n", sizeMe);
+	printf("%d\n", sizeEnemi);	
 
+	
 	//potential damage counter
 	int potDirectDamage = 0;
 	int potMinionDamage =0;
@@ -76,7 +79,6 @@ int main(int argc, char const *argv[])
 			potMinionDamage += state->hand->cards[i]->attack;
 		potDirectDamage += state->hand->cards[i]->damage;
 	}
-	
 	//board check
 	for (i = 0; i < sizeMe; ++i)
 	{
@@ -94,18 +96,19 @@ int main(int argc, char const *argv[])
 	}
 
 	//lethal check
-	enemiHP = state->enemi->hp;
-	Lethal=0;
+	int enemiHP = state->enemi->hp;
+	int Lethal=0;
 	if (potMinionDamage < 0)
 		potMinionDamage = 0;
 	if(potMinionDamage + potDirectDamage >= enemiHP)
 		Lethal = 1;
 
 	if(Lethal == 1)
-		printf('You have lethal! :D\n');
+		printf("You have lethal! :D\n");
 	else
 		printf("You don't have lethal! :(\n");
 
+	*/
 	scanf ("%s", quit);
 	return 0;
 }

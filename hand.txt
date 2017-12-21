@@ -1,4 +1,5 @@
 5
+10
 fireball
 n
 6
@@ -26,6 +27,6 @@ n
 Steam Surger
 n
 0
-5
-1
 4
+4
+5
