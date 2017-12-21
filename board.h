@@ -20,13 +20,14 @@ typedef struct board BOARD;
 //Herohp(int)
 //Number of minions(int)
 //Mana (int)
+//Capacity of board
 //for each card on the board:
 //name of the card (string)
 //mechanics(char)
-//attack(int)
-//life(int)
-//cost(int)
 //damage(int)
+//cost(int)
+//life(int)
+//attack(int)
 //
 //for a visual example open one of the two boardx.txt files
 BOARD* loadBoard (char *path);

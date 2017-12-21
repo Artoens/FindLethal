@@ -42,25 +42,3 @@ HAND* loadHand (char *path)
 	
 	return hand;
 }
-/*
-int main(int argc, char const *argv[])
-{
-	char *path = malloc (BUFFER_SIZE * sizeof (char));
-	char *quit = malloc (BUFFER_SIZE * sizeof (char));
-	printf ("* Votre main: ");
-	scanf ("%s", path);
-	HAND* hand = loadHand(path);
-
-
-
-	int i;
-	for (i = 0; i < hand->handSize; ++i)
-	{
-		printCard(hand->cards[i]);
-	}
-
-	scanf ("%s", quit);
-
-	return 0;
-}
-*/

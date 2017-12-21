@@ -65,7 +65,6 @@ int main(int argc, char const *argv[])
 	int sizeHand = state->hand->handSize;
 	
 
-
 	//potential damage counter
 	int potDirectDamage = 0;
 	int potMinionDamage =0;
@@ -87,7 +86,7 @@ int main(int argc, char const *argv[])
 	}
 	
 	//reduces potential minion damage for enemi taunts
-	for (i = 0; i < sizeEnemi; ++i)
+	for (i = 0; i < sizeEnemi; i++)
 	{
 		if (state->enemi->cards[i]->mechanic == "t")
 			//the perfect taunt hp would be here

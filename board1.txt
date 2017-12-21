@@ -1,16 +1,16 @@
- 
-6
+90
 2
 10
+7
 Stegodon
 t
-2
-6
-4
 0
+4
+6
+2
 Kabal Crystal Runner
 n
-5
-5
-6
 0
+6
+5
+5
