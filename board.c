@@ -24,8 +24,8 @@ BOARD* loadboard (char *path)
 		board->hp = readInt(file);
 		board->boardSize = readInt(file);
 		board->mana = readInt(file);
-		board->size = 0;
-		board->cards = malloc (board->boardSize * sizeof (CARD*));
+		board->capacity = 7;
+		board->cards = malloc (board->capacity * sizeof (CARD*));
 		
 		// creates a card for every card in the file
 		int i;

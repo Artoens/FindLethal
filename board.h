@@ -7,8 +7,10 @@
 
 struct board
 {
+	int hp;
 	int capacity;
-	int size;
+	int boardSize;
+	int mana;
 	CARD** cards;
 };
 typedef struct board BOARD;
@@ -25,7 +27,7 @@ typedef struct board BOARD;
 //attack(int)
 //damage(int)
 //
-//for a visual exemple open one of the two boardx.txt files
+//for a visual example open one of the two boardx.txt files
 HAND* loadBoard (char *path);
 
 #endif //FINDLETHAL_BOARD
