@@ -8,7 +8,7 @@
 #include <string.h>
 #include <ctype.h>
 
-#include "util.h"
+#include "utils.h"
 
 #define BUFFER_SIZE 80
 

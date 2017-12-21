@@ -1,10 +1,11 @@
+#include "card.h"
+#include <stdio.h>
+#include <stdlib.h>
 
-#include "card.c"
 
-
-CARD newCard (char* name,char mechanic, int life, int cost, int attack, int damage)
+CARD* newCard (char* name,char* mechanic, int life, int cost, int attack, int damage)
 {
-	CARD *card = malloc (sizeof (CARD));
+	CARD* card = malloc (sizeof (CARD));
 	card->name = name;
 	card->mechanic = mechanic;
 	card->life = life;
@@ -20,5 +21,5 @@ void printCard (CARD *card)
 	printf ("\"%s\n\"", card->name);
 	printf ("     [%s\n]", card->mechanic);
 	printf ("     {%d\n}", card->damage);
-	printf (">%d<-------------<%d\n>", card->life, card->attack);
+	printf (">%d<-------------<%d\n>", card->attack, card->life);
 }

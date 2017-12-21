@@ -42,14 +42,13 @@ int main(int argc, char const *argv[])
 	double sizeEnemi = sizeof(state->enemi->cards)/sizeof(CARD);
 	int tauntHP = 0;
 	CARD** taunts = newCardlist();
-
-	for (int i = 0; i < sizeEnemi; ++i)
+	int i;
+	for (i = 0; i < sizeEnemi; ++i)
 	{
 		CARD this = state->enemi->cards[i];
 		if (this->mechanic == "t")
 			tauntHP += this->life;
 	}
-
 
 	for(i = 0;)
 	return 0;

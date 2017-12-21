@@ -5,11 +5,13 @@
 #ifndef FINDLETHAL_CARD
 #define FINDLETHAL_CARD
 
+#include "card.h"
+
 
 struct card
 {
     char *name;
-    char mechanic;
+    char *mechanic;
     int life;
     int cost;
     int attack;
@@ -17,7 +19,7 @@ struct card
 };
 typedef struct card CARD;
 
-CARD newCard (char* name,char mechanic, int life, int cost, int attack, int damage);
+CARD* newCard (char* name,char* mechanic, int life, int cost, int attack, int damage);
 
 void printCard (CARD *card);
 

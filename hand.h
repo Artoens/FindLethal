@@ -4,6 +4,8 @@
 
 #ifndef FINDLETHAL_HAND
 #define FINDLETHAL_HAND
+#include "card.h"
+
 
 struct hand
 {
