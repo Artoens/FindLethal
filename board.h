@@ -16,6 +16,7 @@ typedef struct board BOARD;
 //the board file has to have a proper format:
 //Herohp(int)
 //Number of minions(int)
+//Mana (int)
 //for each card on the board:
 //name of the card (string)
 //mechanics(char)

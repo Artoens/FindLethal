@@ -23,6 +23,7 @@ BOARD* loadboard (char *path)
 		fgets (buffer, BUFFER_SIZE, file);
 		board->hp = readInt(file);
 		board->boardSize = readInt(file);
+		board->mana = readInt(file);
 		board->size = 0;
 		board->cards = malloc (board->boardSize * sizeof (CARD*));
 		
