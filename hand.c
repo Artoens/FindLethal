@@ -43,6 +43,7 @@ HAND* loadHand (char *path)
 	
 	return hand;
 }
+//Main made to test if the hand loads correctly
 /*
 int main(int argc, char const *argv[])
 {

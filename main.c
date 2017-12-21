@@ -14,8 +14,10 @@ n = nothing
 With more time and knowledge we could have made some improvements:
 -A taunt counter that checks if you have perfect damage on taunt minion
 -A "How to" lethal that explain which cards does what to get lethal
+-We have implemented a card printed to show the boards and hands
+-we have a cardlits implemented to also build upon if we want to make 
+	the program take into a count decks and draws
 */
-
 
 #include "hand.h"
 #include "board.h"
@@ -58,7 +60,6 @@ int main(int argc, char const *argv[])
 	printf ("* Le board enemi: ");
 	scanf ("%s", enemiBoard);
 	STATE* state = newState(myBoard, enemiBoard, hand);
-	/*
 	//inialize variables
 	int sizeEnemi = state->enemi->boardSize;
 	int sizeMe = state->mine->boardSize;
@@ -108,6 +109,7 @@ int main(int argc, char const *argv[])
 	else
 		printf("You don't have lethal! :(\n");
 
+	/*
 	*/
 	scanf ("%s", quit);
 	return 0;

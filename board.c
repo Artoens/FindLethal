@@ -46,6 +46,7 @@ BOARD* loadBoard (char *path)
 	
 	return board;
 }
+//Main made to test if the hand loads correctly
 /*
 int main(int argc, char const *argv[])
 {
