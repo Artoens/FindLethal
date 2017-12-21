@@ -1,25 +1,21 @@
- 
-/*
-chopper les infos des textes
+ /*
+ *Heartstone lethal counter*
+ This program is made to check our board and your hand
+ as well as the board of the enemi to know if you have
+ a potential lethal play
+ by: Maritn Degeldt & Sam Bertrand
 
-créer la mains et les board (qui sont que des listes de cartes)
+Note on the card mecanics: 
+t = taunt (enemies must attack minion that have taunt first)
+c = charge (minion can attack immidiately)
+w = windfury (minion can attack twice a turn)
+n = nothing
 
-voir si il y a un taunt en face -> ses pv
-
-si dmg + attaque total (charge de la main et windfury, faire *2) < vie + pv rant -> false
-
--> teser si dégat parfait sur les taunts
-	-> si pas, faire au plus proche
-
--> degats restant > vie -> true
-
-###
-Si on a le temps, bien print le board
-
-How to Lethal
-###
-
+With more time and knowledge we could have made some improvements:
+-A taunt counter that checks if you have perfect damage on taunt minion
+-A "How to" lethal that explain which cards does what to get lethal
 */
+
 
 #include "hand.h"
 #include "board.h"
@@ -63,25 +59,54 @@ int main(int argc, char const *argv[])
 	scanf ("%s", enemiBoard);
 
 	STATE* state = newState(myBoard, enemiBoard, hand);
-
+	//inialize variables
 	int sizeEnemi = state->enemi->boardSize;
-	printf("%d\n", state->enemi->hp);
-	printf("%d\n", sizeEnemi);
-	printf("%d\n", state->enemi->capacity);
-	printf("%d\n", state->enemi->mana);
-	int tauntHP = 0;
-	int i;
+	int sizeMe = state->mine->boardSize;
+	int sizeHand = state->hand->handSize;
 	
 
+
+	//potential damage counter
+	int potDirectDamage = 0;
+	int potMinionDamage =0;
+	int i;
+	//hand check
+	for(i=0; i < sizeHand; ++i)
+	{
+		if(state->hand->cards[i]->mechanic == "c")
+			potMinionDamage += state->hand->cards[i]->attack;
+		potDirectDamage += state->hand->cards[i]->damage;
+	}
+	
+	//board check
+	for (i = 0; i < sizeMe; ++i)
+	{
+		if(state->mine->cards[i]->mechanic == "w")
+			potMinionDamage += state->mine->cards[i]->attack;
+		potMinionDamage += state->mine->cards[i]->attack;
+	}
+	
+	//reduces potential minion damage for enemi taunts
 	for (i = 0; i < sizeEnemi; ++i)
 	{
-		printCard(state->enemi->cards[i]);
 		if (state->enemi->cards[i]->mechanic == "t")
-			tauntHP += state->enemi->cards[i]->life;
+			//the perfect taunt hp would be here
+			potMinionDamage -= state->enemi->cards[i]->life;
 	}
 
-	printf("%d\n", tauntHP);
+	//lethal check
+	enemiHP = state->enemi->hp;
+	Lethal=0;
+	if (potMinionDamage < 0)
+		potMinionDamage = 0;
+	if(potMinionDamage + potDirectDamage >= enemiHP)
+		Lethal = 1;
+
+	if(Lethal == 1)
+		printf('You have lethal! :D\n');
+	else
+		printf("You don't have lethal! :(\n");
+
 	scanf ("%s", quit);
-	
 	return 0;
 }
