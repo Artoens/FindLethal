@@ -37,6 +37,14 @@ char* trim (char *str)
 	return str;
 }
 
+char* strCopy (char* str)
+{
+	int strsize = strlen (str);
+	char *newstr = malloc (strsize * sizeof (char));
+	strncpy (newstr, str, strsize);
+	newstr[strsize] = '\0';
+	return newstr;
+}
 
 char* readString (FILE* file)
 {

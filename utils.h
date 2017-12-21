@@ -12,6 +12,8 @@
 //from all blanc characters before and after the chain 
 char *trim (char *str);
 
+// Function that makes the copy of a chain of characters
+char* strCopy (char* str);
 // Function reading a line of a text file opened before
 //and returning a char*
 char* readString (FILE* file);
