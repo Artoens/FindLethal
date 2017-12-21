@@ -5,6 +5,8 @@
 #include "hand.h" 
 #include "card.h"
 
+#define BUFFER_SIZE 80
+
 //inspired from  "ECAM-C3BE-2017-Mini-Projet-Example"
 //martin commentaire pour toi:
 //attention à CARD* et à la fonction CreateCard
@@ -29,9 +31,7 @@ HAND* loadHand (char *path)
 		int i;
 		for (i = 0; i < hand->handSize; i++)
 		{
-			char *name = readString (file);
-			hand->cards[i] = createCard (name, 
-				readString (file), readInt (file),
+			hand->cards[i] = newCard (readString (file), readString(file),readInt (file), 
 				readInt (file), readInt (file), readInt (file));
 		}
 		

@@ -4,6 +4,7 @@
 
 #ifndef FINDLETHAL_BOARD
 #define FINDLETHAL_BOARD
+#include "card.h"
 
 struct board
 {
@@ -28,7 +29,7 @@ typedef struct board BOARD;
 //damage(int)
 //
 //for a visual example open one of the two boardx.txt files
-HAND* loadBoard (char *path);
+BOARD* loadBoard (char *path);
 
 #endif //FINDLETHAL_BOARD
  

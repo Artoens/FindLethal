@@ -1,9 +1,11 @@
- #include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 
-#include "util.h"
+#include "utils.h"
 #include "board.h" 
 #include "card.h"
+
+#define BUFFER_SIZE 80
 
 //inspired from  "ECAM-C3BE-2017-Mini-Projet-Example"
 //martin commentaire pour toi:
@@ -31,9 +33,7 @@ BOARD* loadboard (char *path)
 		int i;
 		for (i = 0; i < board->boardSize; i++)
 		{
-			char *name = readString (file);
-			board->cards[i] = createCard (name, 
-				readString (file), readInt (file),
+			board->cards[i] = newCard (readString (file), readString(file),readInt (file), 
 				readInt (file), readInt (file), readInt (file));
 		}
 		
