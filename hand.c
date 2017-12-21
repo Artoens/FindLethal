@@ -22,8 +22,8 @@ HAND* loadHand (char *path)
 		// reads the hand
 		fgets (buffer, BUFFER_SIZE, file);
 		hand->handSize = readInt(file);
-		hand->size = 0;
-		hand->cards = malloc (hand->handSize * sizeof (CARD*));
+		hand->capacity = 10;
+		hand->cards = malloc (hand->capacity * sizeof (CARD*));
 		
 		// creates a card for every cxard in the file
 		int i;

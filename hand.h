@@ -8,7 +8,7 @@
 struct hand
 {
 	int capacity;
-	int size;
+	int handSize;
 	CARD** cards;
 };
 typedef struct hand HAND;
