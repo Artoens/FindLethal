@@ -11,7 +11,7 @@
 //martin commentaire pour toi:
 //attention à CARD* et à la fonction CreateCard
 //il faut que ce sois dans le bon sens
-BOARD* loadboard (char *path)
+BOARD* loadBoard (char *path)
 {
 	BOARD *board = NULL;
 	
@@ -20,20 +20,23 @@ BOARD* loadboard (char *path)
 	{
 		board = malloc (sizeof (BOARD));
 		char buffer[BUFFER_SIZE];
-		
-		// reads the board
-		fgets (buffer, BUFFER_SIZE, file);
+
 		board->hp = readInt(file);
 		board->boardSize = readInt(file);
 		board->mana = readInt(file);
-		board->capacity = 7;
+		
+		// reads the board
+		fgets (buffer, BUFFER_SIZE, file);
+		board->capacity = atoi (buffer);
 		board->cards = malloc (board->capacity * sizeof (CARD*));
 		
 		// creates a card for every card in the file
 		int i;
-		for (i = 0; i < board->boardSize; i++)
+		for (i = 0; i < board->capacity; i++)
 		{
-			board->cards[i] = newCard (readString (file), readString(file),readInt (file), 
+			char *name = readString (file);
+			char *meca = readString (file);
+			board->cards[i] = newCard (name, meca,readInt (file), 
 				readInt (file), readInt (file), readInt (file));
 		}
 		
@@ -41,4 +44,30 @@ BOARD* loadboard (char *path)
 	}
 	
 	return board;
+}
+
+int main(int argc, char const *argv[])
+{
+	char *path = malloc (BUFFER_SIZE * sizeof (char));
+	char *quit = malloc (BUFFER_SIZE * sizeof (char));
+
+	printf ("* Votre board: ");
+	scanf ("%s", path);
+
+	BOARD* board = loadHand(path);
+
+	printf("%d\n", board->hp);
+	printf("%d\n", board->boardSize);
+	printf("%d\n", board->capacity);
+	printf("%d\n", board->mana);
+
+	int i;
+	for (i = 0; i < board->boardSize; ++i)
+	{
+		printCard(hand->cards[i]);
+	}
+
+	scanf ("%s", quit);
+
+	return 0;
 }

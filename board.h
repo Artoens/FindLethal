@@ -23,9 +23,9 @@ typedef struct board BOARD;
 //for each card on the board:
 //name of the card (string)
 //mechanics(char)
+//attack(int)
 //life(int)
 //cost(int)
-//attack(int)
 //damage(int)
 //
 //for a visual example open one of the two boardx.txt files

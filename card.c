@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 
-CARD* newCard (char* name,char* mechanic, int life, int cost, int attack, int damage)
+CARD* newCard (char* name,char* mechanic, int attack, int life, int cost, int damage)
 {
 	CARD* card = malloc (sizeof (CARD));
 	card->name = name;
@@ -17,9 +17,9 @@ CARD* newCard (char* name,char* mechanic, int life, int cost, int attack, int da
 
 void printCard (CARD *card)
 {
-	printf ("(%d)\n-----------------", card->cost);
-	printf ("\"%s\n\"", card->name);
-	printf ("     [%s\n]", card->mechanic);
-	printf ("     {%d\n}", card->damage);
-	printf (">%d<-------------<%d\n>", card->attack, card->life);
+	printf ("(%d)-----------------\n", card->cost);
+	printf ("\"%s\"\n", card->name);
+	printf ("     [%s]\n", card->mechanic);
+	printf ("     {%d}\n", card->damage);
+	printf (">%d<-------------<%d>\n", card->attack, card->life);
 }

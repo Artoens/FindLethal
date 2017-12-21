@@ -31,7 +31,9 @@ HAND* loadHand (char *path)
 		int i;
 		for (i = 0; i < hand->handSize; i++)
 		{
-			hand->cards[i] = newCard (readString (file), readString(file),readInt (file), 
+			char *name = readString (file);
+			char *meca = readString (file);
+			hand->cards[i] = newCard (name, meca,readInt (file), 
 				readInt (file), readInt (file), readInt (file));
 		}
 		
@@ -40,3 +42,25 @@ HAND* loadHand (char *path)
 	
 	return hand;
 }
+/*
+int main(int argc, char const *argv[])
+{
+	char *path = malloc (BUFFER_SIZE * sizeof (char));
+	char *quit = malloc (BUFFER_SIZE * sizeof (char));
+	printf ("* Votre main: ");
+	scanf ("%s", path);
+	HAND* hand = loadHand(path);
+
+
+
+	int i;
+	for (i = 0; i < hand->handSize; ++i)
+	{
+		printCard(hand->cards[i]);
+	}
+
+	scanf ("%s", quit);
+
+	return 0;
+}
+*/

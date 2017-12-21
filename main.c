@@ -26,30 +26,62 @@ How to Lethal
 #include "cardlist.h"
 #include "utils.h"
 
+#define BUFFER_SIZE 80
+struct state
+{
+	HAND *hand;
+	BOARD *enemi;
+	BOARD *mine;
+};
+
+typedef struct state STATE;
+
+
 STATE* newState(char *myBoard, char *enemiBoard, char *hand)
 {
 	STATE* state = malloc (sizeof (STATE));
-	state->hand = loadHand(*hand);
-	state->enemi = loadBoard(*enemiBoard);
-	state->mine = loadBoard(*myBoard);
+	state->hand = loadHand(hand);
+	state->enemi = loadBoard(enemiBoard);
+	state->mine = loadBoard(myBoard);
 
 	return state;
 }
 
 int main(int argc, char const *argv[])
 {
-	STATE* state = newState()
-	double sizeEnemi = sizeof(state->enemi->cards)/sizeof(CARD);
+	char *quit=  malloc (BUFFER_SIZE * sizeof (char));
+	char *hand = malloc (BUFFER_SIZE * sizeof (char));
+	char *enemiBoard = malloc (BUFFER_SIZE * sizeof (char));
+	char *myBoard = malloc (BUFFER_SIZE * sizeof (char));
+	printf ("* Votre main: ");
+	scanf ("%s", hand);
+
+	printf ("* Votre board: ");
+	scanf ("%s", myBoard);
+
+	printf ("* Le board enemi: ");
+	scanf ("%s", enemiBoard);
+
+	STATE* state = newState(myBoard, enemiBoard, hand);
+
+	int sizeEnemi = state->enemi->boardSize;
+	printf("%d\n", state->enemi->hp);
+	printf("%d\n", sizeEnemi);
+	printf("%d\n", state->enemi->capacity);
+	printf("%d\n", state->enemi->mana);
 	int tauntHP = 0;
-	CARD** taunts = newCardlist();
 	int i;
+	
+
 	for (i = 0; i < sizeEnemi; ++i)
 	{
-		CARD this = state->enemi->cards[i];
-		if (this->mechanic == "t")
-			tauntHP += this->life;
+		printCard(state->enemi->cards[i]);
+		if (state->enemi->cards[i]->mechanic == "t")
+			tauntHP += state->enemi->cards[i]->life;
 	}
 
-	for(i = 0;)
+	printf("%d\n", tauntHP);
+	scanf ("%s", quit);
+	
 	return 0;
 }
