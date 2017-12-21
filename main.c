@@ -73,7 +73,7 @@ int main(int argc, char const *argv[])
 	int i;
 	
 
-	for (i = 0; i < sizeEnemi; ++i)
+	for (i = 0; i < sizeEnemi; i++)
 	{
 		printCard(state->enemi->cards[i]);
 		if (state->enemi->cards[i]->mechanic == "t")

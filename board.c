@@ -36,8 +36,9 @@ BOARD* loadBoard (char *path)
 		{
 			char *name = readString (file);
 			char *meca = readString (file);
-			board->cards[i] = newCard (name, meca,readInt (file), 
-				readInt (file), readInt (file), readInt (file));
+			//WHY DO YOU READ FROM THE LAST STUPID C
+			board->cards[i] = newCard (name, meca, readInt (file), readInt (file), 
+				readInt (file), readInt (file));
 		}
 		
 		fclose (file);
@@ -45,7 +46,7 @@ BOARD* loadBoard (char *path)
 	
 	return board;
 }
-
+/*
 int main(int argc, char const *argv[])
 {
 	char *path = malloc (BUFFER_SIZE * sizeof (char));
@@ -53,8 +54,9 @@ int main(int argc, char const *argv[])
 
 	printf ("* Votre board: ");
 	scanf ("%s", path);
+	
 
-	BOARD* board = loadHand(path);
+	BOARD* board = loadBoard(path);
 
 	printf("%d\n", board->hp);
 	printf("%d\n", board->boardSize);
@@ -64,10 +66,14 @@ int main(int argc, char const *argv[])
 	int i;
 	for (i = 0; i < board->boardSize; ++i)
 	{
-		printCard(hand->cards[i]);
+		printCard(board->cards[i]);
 	}
 
-	scanf ("%s", quit);
+	board->cards[board->boardSize+1] = newCard("Leeroy", "c", 6, 2, 5, 0);
+	printCard(board->cards[board->boardSize+1]);
 
+	scanf ("%s", quit);
+	
 	return 0;
 }
+*/

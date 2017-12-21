@@ -20,10 +20,10 @@ typedef struct hand HAND;
 //for each card in the hand:
 //name of the card (string)
 //mechanics(char)
-//attack(int)
-//life(int)
-//cost(int)
 //damage(int)
+//cost(int)
+//life(int)
+//attack(int)
 //
 //for a visual exemple open the hand.txt file
 HAND* loadHand (char *path);

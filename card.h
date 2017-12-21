@@ -12,14 +12,14 @@ struct card
 {
     char *name;
     char *mechanic;
+    int attack;
     int life;
     int cost;
-    int attack;
     int	damage;
 };
 typedef struct card CARD;
 
-CARD* newCard (char* name,char* mechanic, int life, int cost, int attack, int damage);
+CARD* newCard (char* name, char* mechanic, int attack, int life, int cost, int damage);
 
 void printCard (CARD *card);
 
