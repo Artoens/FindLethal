@@ -1,4 +1,18 @@
  /*
+Nous rendons ce projet dans cet état car faute de temps nous n’avons 
+pas eu le temps de trouver d’où venais le bug que nous rencontrons. 
+
+Le load deck (avec le main dans deck) fonctionne sans problème.
+Le load hand (avec le main dans hand) fonctionne sans problème.
+
+Lorsque le hand et le deck sont loader dans le state de ce main ci
+ le programme plante. Nous ne savons pas à quoi c’est dû.
+ 
+La suite du programme fonctionne théoriquement. Nous n’avons pas 
+pu faire de test et de debugging de cette partie du code parceque le début ne marche pas.
+ */
+
+ /*
  *Heartstone lethal counter*
  This program is made to check our board and your hand
  as well as the board of the enemi to know if you have
